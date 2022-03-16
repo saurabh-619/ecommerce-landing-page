@@ -33,9 +33,9 @@ const SocialButtons: React.FC<ISocialButtonsProps> = ({}) => {
   const getSocialIcon = () =>
     icons.map((icon, i) => (
       <motion.div
+        key={i}
         animate={isAnimating ? "final" : "initial"}
         variants={variants}
-        key={i}
         className="p-2 mr-3 border border-gray-200 rounded-lg app-cursor"
       >
         {icon}

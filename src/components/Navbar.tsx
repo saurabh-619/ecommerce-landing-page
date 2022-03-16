@@ -5,7 +5,7 @@ import { FiUser, FiShoppingBag } from "react-icons/fi";
 const Navbar = () => {
   return (
     <nav
-      className="border-b-2 app-y-center border-b-gray-100"
+      className="border-b-2 app-y-center border-b-gray-100 "
       style={{ height: "12vh" }}
     >
       <div className="h-full px-12 border-r-2 app-y-center border-r-gray-100">
@@ -33,8 +33,8 @@ const Navbar = () => {
       </div>
 
       <div className="w-1/4 app-center">
-        <FiShoppingBag size={22} className="mr-6" />
-        <FiUser size={22} />
+        <FiShoppingBag size={22} className="mr-6 z-10 relative" />
+        <FiUser size={22} className="z-10 relative" />
       </div>
     </nav>
   );

@@ -5,6 +5,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Ubuntu", sans-serif;
+  overflow: hidden;
 }
 
 a {
@@ -39,5 +40,12 @@ a {
 
   .app-center {
     @apply flex items-center justify-center;
+  }
+
+  .app-summer {
+    position: relative;
+  }
+  .vertical-writing {
+    writing-mode: vertical-rl;
   }
 }

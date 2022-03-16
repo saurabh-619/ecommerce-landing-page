@@ -1,8 +1,35 @@
-import React from "react";
+import { AnimationContext } from "@pages/_app";
+import React, { useContext } from "react";
 import { FiPlus } from "react-icons/fi";
 import Card from "./Card";
+import { motion } from "framer-motion";
 
-const Model: React.FC = () => {
+const Model: React.FC = ({}) => {
+  const { isAnimating, setIsAnimating } = useContext(AnimationContext);
+
+  const circlesVariants = {
+    initial: { x: 0, y: 0 },
+    final: {
+      x: "25vw",
+      y: 50,
+      transition: { delay: 0.2, duration: 0.3, type: "spring", damping: 40 },
+    },
+  };
+
+  const modelVariants = {
+    initial: { x: 0 },
+    final: {
+      x: "25vw",
+      transition: { delay: 0.3, duration: 0.3, type: "spring", damping: 40 },
+    },
+  };
+
+  const btnVariants = {
+    initial: { opacity: [1, 1, 1] },
+    final: { opacity: [1, 1, 1] },
+    // final: { opacity: [0.5, 1, 0], transition: { duration: 0.3, type: 'spring', damping: 40  } },
+  };
+
   return (
     <div
       className="flex items-end justify-start"
@@ -10,27 +37,38 @@ const Model: React.FC = () => {
     >
       <div className="relative w-2/3">
         {/* Circles */}
-        <div className="absolute top-6 left-0 app-center">
+        <motion.div
+          animate={isAnimating ? "final" : "initial"}
+          variants={circlesVariants}
+          className="absolute left-0 top-6 app-center"
+        >
           <div
-            className="absolute top-0 left-6 rounded-full bg-pink-100 z-20"
+            className="absolute top-0 z-20 bg-pink-100 rounded-full left-6"
             style={{ height: "500px", width: "500px" }}
           ></div>
           <div
-            className="absolute top-0 -left-0 rounded-full bg-pink-50 z-10"
+            className="absolute top-0 z-10 rounded-full -left-0 bg-pink-50"
             style={{ height: "500px", width: "550px" }}
           ></div>
-        </div>
+        </motion.div>
         {/* Model Image */}
         <div className="relative z-30 left-1/4">
-          <img
+          <motion.img
+            animate={isAnimating ? "final" : "initial"}
+            variants={modelVariants}
             src="/images/model.png"
             alt="model"
-            className="h-3/4 w-auto object-cover"
+            className="object-cover w-auto h-3/4"
           />
-          <div className="app-center h-10 w-10 rounded-full bg-black left-0 app-center-y-tras app-cursor">
+          <motion.div
+            animate={isAnimating ? "final" : "initial"}
+            variants={btnVariants}
+            className="left-0 w-10 h-10 bg-black rounded-full app-center app-center-y-tras app-cursor"
+            onClick={() => setIsAnimating((prev) => !prev)}
+          >
             <FiPlus size={14} color="white" />
-          </div>
-          <div className="flex flex-col absolute right-16 top-12">
+          </motion.div>
+          <div className="absolute flex flex-col right-16 top-12">
             <Card bgColor="bg-white" imageUrl="/images/purse.png" />
             <Card bgColor="bg-white" imageUrl="/images/shoes.png" />
           </div>

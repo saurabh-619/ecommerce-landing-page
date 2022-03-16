@@ -26,17 +26,31 @@ const SocialButtons: React.FC = ({}) => {
     <FaTwitter size={17} />,
   ];
 
-  const getSocialIcon = () =>
-    icons.map((icon, i) => (
+  const getSocialIcon = () => (
+    <>
       <motion.div
-        key={i + Math.random() * 100}
         animate={isAnimating ? "final" : "initial"}
         variants={variants}
         className="p-2 mr-3 border border-gray-200 rounded-lg app-cursor"
       >
-        {icon}
+        <FaFacebookF size={17} />
       </motion.div>
-    ));
+      <motion.div
+        animate={isAnimating ? "final" : "initial"}
+        variants={variants}
+        className="p-2 mr-3 border border-gray-200 rounded-lg app-cursor"
+      >
+        <FaInstagram size={17} />
+      </motion.div>
+      <motion.div
+        animate={isAnimating ? "final" : "initial"}
+        variants={variants}
+        className="p-2 mr-3 border border-gray-200 rounded-lg app-cursor"
+      >
+        <FaTwitter size={17} />
+      </motion.div>
+    </>
+  );
 
   return (
     <div className="absolute w-1/4 bottom-8 app-y-center">

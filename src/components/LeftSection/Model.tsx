@@ -5,7 +5,8 @@ import Card from "./Card";
 import { motion } from "framer-motion";
 
 const Model: React.FC = ({}) => {
-  const { isAnimating, setIsAnimating } = useContext(AnimationContext);
+  const { isAnimating, hasImageClicked, setIsAnimating } =
+    useContext(AnimationContext);
 
   const circlesVariants = {
     initial: { x: 0, y: 0 },
@@ -19,15 +20,26 @@ const Model: React.FC = ({}) => {
   const modelVariants = {
     initial: { x: 0 },
     final: {
-      x: "25vw",
+      x: "22vw",
       transition: { delay: 0.3, duration: 0.3, type: "spring", damping: 40 },
+    },
+  };
+
+  const modelChangeVariants = {
+    initial: { opacity: [1, 1, 1, 1] },
+    final: {
+      opacity: [1, 0, 0, 1],
+      x: ["22vw", "32vw", "22vw"],
+      transition: { duration: 1.1, ease: "easeOut" },
     },
   };
 
   const btnVariants = {
     initial: { opacity: [1, 1, 1] },
-    final: { opacity: [1, 1, 1] },
-    // final: { opacity: [0.5, 1, 0], transition: { duration: 0.3, type: 'spring', damping: 40  } },
+    final: {
+      opacity: [0.5, 1, 0],
+      transition: { duration: 0.3, type: "spring", damping: 40 },
+    },
   };
 
   return (
@@ -51,15 +63,16 @@ const Model: React.FC = ({}) => {
             style={{ height: "500px", width: "550px" }}
           ></div>
         </motion.div>
-        {/* Model Image */}
         <div className="relative z-30 left-1/4">
+          {/* Model Image */}
           <motion.img
-            animate={isAnimating ? "final" : "initial"}
-            variants={modelVariants}
+            animate={isAnimating || hasImageClicked ? "final" : "initial"}
+            variants={!hasImageClicked ? modelVariants : modelChangeVariants}
             src="/images/model.png"
             alt="model"
             className="object-cover w-auto h-3/4"
           />
+          {/* Trigger Btn */}
           <motion.div
             animate={isAnimating ? "final" : "initial"}
             variants={btnVariants}
@@ -68,6 +81,7 @@ const Model: React.FC = ({}) => {
           >
             <FiPlus size={14} color="white" />
           </motion.div>
+          {/* Cards */}
           <div className="absolute flex flex-col right-16 top-12">
             <Card bgColor="bg-white" imageUrl="/images/purse.png" />
             <Card bgColor="bg-white" imageUrl="/images/shoes.png" />

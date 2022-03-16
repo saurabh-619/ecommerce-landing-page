@@ -60,4 +60,11 @@ a {
     top: 50%;
     transform: translateY(-50%);
   }
+
+  .img-options {
+    transition: all 200ms ease-out !important;
+  }
+  .img-options:hover {
+    transform: scale(1.25) !important;
+  }
 }

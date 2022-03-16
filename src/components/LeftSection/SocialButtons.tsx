@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { AnimationContext } from "@pages/_app";
 
-const SocialButtons: React.FC<ISocialButtonsProps> = ({}) => {
+const SocialButtons: React.FC = ({}) => {
   const { isAnimating } = useContext(AnimationContext);
 
   const variants = {

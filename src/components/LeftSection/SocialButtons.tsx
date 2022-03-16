@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { AnimationContext } from "@pages/_app";
 
-const SocialButtons: React.FC = ({}) => {
+const SocialButtons: React.FC<ISocialButtonsProps> = ({}) => {
   const { isAnimating } = useContext(AnimationContext);
 
   const variants = {
@@ -21,36 +21,22 @@ const SocialButtons: React.FC = ({}) => {
   };
 
   const icons = [
-    <FaFacebookF size={17} />,
-    <FaInstagram size={17} />,
-    <FaTwitter size={17} />,
+    <FaFacebookF key={Math.random() * 100 + ""} size={17} />,
+    <FaInstagram key={Math.random() * 100 + ""} size={17} />,
+    <FaTwitter key={Math.random() * 100 + ""} size={17} />,
   ];
 
-  const getSocialIcon = () => (
-    <>
+  const getSocialIcon = () =>
+    icons.map((icon, i) => (
       <motion.div
+        key={i}
         animate={isAnimating ? "final" : "initial"}
         variants={variants}
         className="p-2 mr-3 border border-gray-200 rounded-lg app-cursor"
       >
-        <FaFacebookF size={17} />
+        {icon}
       </motion.div>
-      <motion.div
-        animate={isAnimating ? "final" : "initial"}
-        variants={variants}
-        className="p-2 mr-3 border border-gray-200 rounded-lg app-cursor"
-      >
-        <FaInstagram size={17} />
-      </motion.div>
-      <motion.div
-        animate={isAnimating ? "final" : "initial"}
-        variants={variants}
-        className="p-2 mr-3 border border-gray-200 rounded-lg app-cursor"
-      >
-        <FaTwitter size={17} />
-      </motion.div>
-    </>
-  );
+    ));
 
   return (
     <div className="absolute w-1/4 bottom-8 app-y-center">

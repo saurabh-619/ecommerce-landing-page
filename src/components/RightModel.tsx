@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 const RightModel: React.FC = () => {
   const variants = {
     initial: { opacity: 1, x: 0 },
+    // final: { opacity: 1, x: 0 },
     final: { opacity: 0, x: "100%", transition: { duration: 2 } },
   };
 
@@ -23,6 +24,7 @@ const RightModel: React.FC = () => {
           <img
             src="/images/model2-crop.jpg"
             className="relative h-full left-1/4 object-cover"
+            alt="model 2"
           />
         </div>
         <div className="absolute top-3 left-3">

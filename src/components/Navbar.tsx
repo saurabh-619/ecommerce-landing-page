@@ -22,7 +22,7 @@ const Navbar = () => {
           WOMEN
         </h3>
       </div>
-      <div className="w-3/4 app-r-border app-center">
+      <div className="w-3/4 app-center">
         <div className="relative mr-8">
           <FaRegHeart size={22} />
           <div className="absolute w-4 h-4 text-xs font-thin text-white bg-black rounded-full -top-1 -right-2 app-center">
@@ -31,7 +31,6 @@ const Navbar = () => {
         </div>
         <h3 className="text-xs font-bold app-cursor">SEARCH</h3>
       </div>
-
       <div className="w-1/4 app-center">
         <FiShoppingBag size={22} className="mr-6 z-10 relative" />
         <FiUser size={22} className="z-10 relative" />

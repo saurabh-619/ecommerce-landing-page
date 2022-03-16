@@ -48,4 +48,16 @@ a {
   .vertical-writing {
     writing-mode: vertical-rl;
   }
+
+  .app-center-x-tras {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .app-center-y-tras {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }

@@ -9,7 +9,7 @@ This is a Next.js + Framer motion based ecommerce site landing page with cool an
 - react_icons = Feather/Font awesome icons. 
  
 ## Demo
-  [Web - Ecommerce site](https://github.com/saurabh-619/qoohoo-assignment/blob/main/resources/drag.gif?raw=true)
+  [Web - Ecommerce site](https://ecommerce-landing-page-snowy.vercel.app/)
 
 ## Run Locally
 

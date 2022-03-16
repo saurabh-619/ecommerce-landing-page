@@ -29,7 +29,7 @@ const SocialButtons: React.FC = ({}) => {
   const getSocialIcon = () =>
     icons.map((icon, i) => (
       <motion.div
-        key={i}
+        key={i + Math.random() * 100}
         animate={isAnimating ? "final" : "initial"}
         variants={variants}
         className="p-2 mr-3 border border-gray-200 rounded-lg app-cursor"

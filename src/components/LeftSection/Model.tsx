@@ -13,7 +13,7 @@ const Model: React.FC = ({}) => {
     final: {
       x: "25vw",
       y: 50,
-      transition: { delay: 0.2, duration: 0.3, type: "spring", damping: 40 },
+      transition: { delay: 0.05, duration: 0.3, type: "spring", damping: 40 },
     },
   };
 
@@ -21,7 +21,7 @@ const Model: React.FC = ({}) => {
     initial: { x: 0 },
     final: {
       x: "22vw",
-      transition: { delay: 0.3, duration: 0.3, type: "spring", damping: 40 },
+      transition: { delay: 0.05, duration: 0.15, type: "spring", damping: 35 },
     },
   };
 
@@ -29,8 +29,8 @@ const Model: React.FC = ({}) => {
     initial: { opacity: [1, 1, 1, 1] },
     final: {
       opacity: [1, 0, 0, 1],
-      x: ["22vw", "32vw", "22vw"],
-      transition: { duration: 1.1, ease: "easeOut" },
+      x: ["22vw", "28vw", "22vw"],
+      transition: { duration: 0.5, ease: "easeOut" },
     },
   };
 
@@ -74,8 +74,8 @@ const Model: React.FC = ({}) => {
           />
           {/* Trigger Btn */}
           <motion.div
-            animate={isAnimating ? "final" : "initial"}
-            variants={btnVariants}
+            // animate={isAnimating ? "final" : "initial"}
+            // variants={btnVariants}
             className="left-0 w-10 h-10 bg-black rounded-full app-center app-center-y-tras app-cursor"
             onClick={() => setIsAnimating((prev) => !prev)}
           >
@@ -83,8 +83,8 @@ const Model: React.FC = ({}) => {
           </motion.div>
           {/* Cards */}
           <div className="absolute flex flex-col right-16 top-12">
-            <Card bgColor="bg-white" imageUrl="/images/purse.png" />
-            <Card bgColor="bg-white" imageUrl="/images/shoes.png" />
+            <Card index={1} bgColor="bg-white" imageUrl="/images/purse.png" />
+            <Card index={2} bgColor="bg-white" imageUrl="/images/shoes.png" />
           </div>
         </div>
       </div>

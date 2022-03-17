@@ -12,7 +12,7 @@ const Content: React.FC<IContentProps> = () => {
     initial: {},
     final: {
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.09,
       },
     },
   };
@@ -23,16 +23,20 @@ const Content: React.FC<IContentProps> = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
       },
     },
   };
 
   const sizeParentVariants = {
-    initial: {},
+    initial: {
+      y: 120,
+    },
     final: {
+      y: 0,
       transition: {
-        delayChildren: 1.5,
+        duration: 1,
+        delayChildren: 0.5,
         staggerChildren: 0.15,
         ease: "easeInOut",
       },
@@ -40,11 +44,10 @@ const Content: React.FC<IContentProps> = () => {
   };
 
   const sizeChildVariants = {
-    initial: { y: 20, opacity: 0, scale: 0.5 },
+    initial: { opacity: 0, scale: 0 },
     final: {
-      y: 0,
-      opacity: 1,
-      scale: 1,
+      opacity: [0.3, 0.8, 1],
+      scale: [0.5, 1.15, 1],
       transition: {
         duration: 0.2,
       },
@@ -55,22 +58,22 @@ const Content: React.FC<IContentProps> = () => {
     initial: {},
     final: {
       transition: {
-        delayChildren: 2,
-        staggerChildren: 0.3,
+        delayChildren: 0.45,
+        staggerChildren: 0.12,
         ease: "easeInOut",
       },
     },
   };
 
   const imgDivChildVariants = {
-    initial: { x: 30, opacity: 0 },
+    initial: { x: 40, opacity: 0 },
     final: {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 0.3,
+        duration: 0.1,
         type: "spring",
-        damping: 40,
+        damping: 35,
       },
     },
   };
@@ -81,9 +84,9 @@ const Content: React.FC<IContentProps> = () => {
       x: 0,
       scale: 1,
       transition: {
-        duration: 0.3,
-        type: "spring",
-        damping: 40,
+        duration: 0.15,
+        // type: "spring",
+        // damping: 40,
       },
     },
   };
@@ -91,14 +94,22 @@ const Content: React.FC<IContentProps> = () => {
   const addBtnVariants = {
     initial: { opacity: 0, scale: [0, 0, 0] },
     final: {
-      opacity: 1,
+      opacity: 1.2,
       scale: [1, 1.2, 1],
       transition: {
-        delay: 4,
-        duration: 0.5,
+        delay: 0.6,
+        duration: 0.3,
         type: "spring",
-        damping: 40,
+        damping: 35,
       },
+    },
+  };
+
+  const selectSizeVariants = {
+    initial: { opacity: 0 },
+    final: {
+      opacity: 1,
+      transition: { delay: 0.4, duration: 0.7 },
     },
   };
 
@@ -182,7 +193,9 @@ const Content: React.FC<IContentProps> = () => {
             </motion.div>
           ))}
           <motion.h4
-            variants={sizeChildVariants}
+            // variants={sizeChildVariants}
+            animate={isAnimating ? "final" : "initial"}
+            variants={selectSizeVariants}
             className="text-sm font-medium text-gray-400"
           >
             SIZE GUIDE
@@ -211,7 +224,7 @@ const Content: React.FC<IContentProps> = () => {
                 setHasImageClicked(true);
                 setTimeout(() => {
                   setHasImageClicked(false);
-                }, 1100);
+                }, 500);
               }}
             />
           </motion.div>

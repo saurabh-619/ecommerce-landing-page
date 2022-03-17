@@ -3,15 +3,21 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 
 interface ICardProps {
+  index: number;
   imageUrl: string;
   bgColor: string;
 }
 
-const Card: React.FC<ICardProps> = ({ imageUrl, bgColor }) => {
+const Card: React.FC<ICardProps> = ({ index, imageUrl, bgColor }) => {
   const { isAnimating, setIsAnimating } = useContext(AnimationContext);
   const cardVariants = {
-    initial: { opacity: 1, scale: 1 },
-    final: { opacity: 0, scale: 0, transition: { duration: 0.5 } },
+    initial: { y: 0, opacity: 1, scale: 1 },
+    final: {
+      y: index === 1 ? 0 : 100,
+      opacity: 0,
+      scale: 0,
+      transition: { delay: index === 1 ? 0.1 : 0, duration: 0.3 },
+    },
   };
 
   return (

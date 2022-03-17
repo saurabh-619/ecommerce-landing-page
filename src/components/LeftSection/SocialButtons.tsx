@@ -13,7 +13,7 @@ const SocialButtons: React.FC = ({}) => {
     },
     final: {
       scale: 0,
-      opacity: 1,
+      opacity: 0,
       transition: {
         duration: 0.5,
       },

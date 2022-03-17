@@ -13,7 +13,7 @@ const Model: React.FC = ({}) => {
     final: {
       x: "25vw",
       y: 50,
-      transition: { delay: 0.05, duration: 0.3, type: "spring", damping: 40 },
+      transition: { duration: 0.05, type: "spring", damping: 18 },
     },
   };
 
@@ -21,7 +21,7 @@ const Model: React.FC = ({}) => {
     initial: { x: 0 },
     final: {
       x: "22vw",
-      transition: { delay: 0.05, duration: 0.15, type: "spring", damping: 35 },
+      transition: { duration: 0.05, type: "spring", damping: 18 },
     },
   };
 
@@ -38,7 +38,7 @@ const Model: React.FC = ({}) => {
     initial: { opacity: [1, 1, 1] },
     final: {
       opacity: [0.5, 1, 0],
-      transition: { duration: 0.3, type: "spring", damping: 40 },
+      transition: { duration: 0.2, type: "spring", damping: 40 },
     },
   };
 
@@ -74,8 +74,8 @@ const Model: React.FC = ({}) => {
           />
           {/* Trigger Btn */}
           <motion.div
-            // animate={isAnimating ? "final" : "initial"}
-            // variants={btnVariants}
+            animate={isAnimating ? "final" : "initial"}
+            variants={btnVariants}
             className="left-0 w-10 h-10 bg-black rounded-full app-center app-center-y-tras app-cursor"
             onClick={() => setIsAnimating((prev) => !prev)}
           >

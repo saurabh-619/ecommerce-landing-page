@@ -6,7 +6,7 @@ const PageNumber = () => {
   const { isAnimating } = useContext(AnimationContext);
   const variants = {
     initial: { opacity: 0 },
-    final: { opacity: 1, transition: { delay: 0.9, duration: 0.4 } },
+    final: { opacity: 1, transition: { delay: 0.55, duration: 0.4 } },
   };
 
   const heightVariants = {
@@ -14,7 +14,7 @@ const PageNumber = () => {
     final: {
       opacity: 1,
       scale: 1,
-      transition: { delay: 0.7, duration: 0.3 },
+      transition: { delay: 0.4, duration: 0.4 },
     },
   };
 

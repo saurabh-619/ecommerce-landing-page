@@ -23,7 +23,7 @@ const Content: React.FC<IContentProps> = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.3,
+        duration: 0.25,
       },
     },
   };
@@ -36,7 +36,7 @@ const Content: React.FC<IContentProps> = () => {
       y: 0,
       transition: {
         duration: 1,
-        delayChildren: 0.5,
+        delayChildren: 0.3,
         staggerChildren: 0.15,
         ease: "easeInOut",
       },
@@ -49,7 +49,7 @@ const Content: React.FC<IContentProps> = () => {
       opacity: [0.3, 0.8, 1],
       scale: [0.5, 1.15, 1],
       transition: {
-        duration: 0.2,
+        duration: 0.15,
       },
     },
   };
@@ -58,7 +58,7 @@ const Content: React.FC<IContentProps> = () => {
     initial: {},
     final: {
       transition: {
-        delayChildren: 0.45,
+        delayChildren: 0.95,
         staggerChildren: 0.12,
         ease: "easeInOut",
       },
@@ -79,14 +79,14 @@ const Content: React.FC<IContentProps> = () => {
   };
 
   const imgChildVariants = {
-    initial: { x: 30, scale: 1.5 },
+    initial: { x: 40, scale: 1.5 },
     final: {
       x: 0,
       scale: 1,
       transition: {
-        duration: 0.15,
+        duration: 0.1,
         // type: "spring",
-        // damping: 40,
+        // damping: 35,
       },
     },
   };
@@ -97,7 +97,7 @@ const Content: React.FC<IContentProps> = () => {
       opacity: 1.2,
       scale: [1, 1.2, 1],
       transition: {
-        delay: 0.6,
+        delay: 0.55,
         duration: 0.3,
         type: "spring",
         damping: 35,
@@ -194,6 +194,7 @@ const Content: React.FC<IContentProps> = () => {
           ))}
           <motion.h4
             // variants={sizeChildVariants}
+            initial="initial"
             animate={isAnimating ? "final" : "initial"}
             variants={selectSizeVariants}
             className="text-sm font-medium text-gray-400"
